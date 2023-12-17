@@ -1,0 +1,43 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+model User {
+    id                      String  @id @default(uuid())
+    name                    String
+    kiitEmail               String  @unique
+    personalEmail           String  @unique
+    phoneNumber             String?
+    password                String
+    currentQuestionSequence Int     @default(1)
+
+    UserSubmission UserSubmission[]
+}
+
+model Question {
+    id       String @id @default(uuid())
+    sequence Int    @unique
+    question String
+    answer   String
+    hint     String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model UserSubmission {
+    id        String  @id @default(uuid())
+    userId    String
+    answer    String
+    isCorrect Boolean @default(false)
+
+    submissionTime DateTime @default(now())
+
+    user User @relation(fields: [userId], references: [id])
+}
