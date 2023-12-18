@@ -86,7 +86,7 @@ const LoginForm = () => {
           </Button>
         </form>
         <p className="text-center text-sm text-gray-500">
-          New to MLSA KIIT?{" "}
+          New Here?{" "}
           <Link href="/auth/register" className="text-blue-500 hover:underline">
             Join Now
           </Link>

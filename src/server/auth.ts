@@ -10,7 +10,8 @@ import {
 import { comparePassword } from "@/lib/bcrypt";
 
 interface IUser extends DefaultUser {
-  personalEmail: string;
+  id: string;
+  // personalEmail: string;
 }
 
 declare module "next-auth" {
@@ -82,13 +83,13 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.personalEmail = user.personalEmail;
+        token.id = user.id;
       }
       return token;
     },
     async session({ session, token }) {
       if (token && session.user) {
-        session.user.personalEmail = token.personalEmail;
+        session.user.id = token.id;
       }
       return session;
     },

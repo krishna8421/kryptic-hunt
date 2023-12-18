@@ -21,23 +21,26 @@ model User {
 }
 
 model Question {
-    id       String @id @default(uuid())
-    sequence Int    @unique
+    id       String  @id @default(uuid())
+    sequence Int     @unique
     question String
     answer   String
     hint     String?
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    createdAt      DateTime         @default(now())
+    updatedAt      DateTime         @updatedAt
+    UserSubmission UserSubmission[]
 }
 
 model UserSubmission {
-    id        String  @id @default(uuid())
-    userId    String
-    answer    String
-    isCorrect Boolean @default(false)
+    id         String  @id @default(uuid())
+    userId     String  @unique
+    questionId String  @unique
+    answer     String
+    isCorrect  Boolean @default(false)
 
     submissionTime DateTime @default(now())
 
-    user User @relation(fields: [userId], references: [id])
+    user     User     @relation(fields: [userId], references: [id])
+    question Question @relation(fields: [questionId], references: [id])
 }
