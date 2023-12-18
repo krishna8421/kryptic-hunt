@@ -3,8 +3,7 @@
     "sequence": 1,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac neque lacinia tortor placerat dapibus.",
     "answer": "Lorem",
-    "hint": "hint",
-    "image": true
+    "hint": "hint"
   },
   {
     "sequence": 2,

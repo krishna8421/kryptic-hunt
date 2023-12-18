@@ -1,6 +1,7 @@
 "use client";
 
 import Countdown, { CountdownRenderProps } from "react-countdown";
+import { registrationBegin } from "@/constants";
 
 const renderer = ({
   days,
@@ -46,12 +47,10 @@ const renderer = ({
 };
 
 const CountdownBox = () => {
-  const date = "28";
-  const month = "12";
   return (
     <Countdown
       key={5}
-      date={`2023-${month}-${date}T00:00:00`}
+      date={`${registrationBegin.year}-${registrationBegin.month}-${registrationBegin.date}T00:00:00`}
       renderer={renderer}
     />
   );

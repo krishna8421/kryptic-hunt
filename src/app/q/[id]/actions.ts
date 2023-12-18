@@ -32,7 +32,7 @@ export const submitAnswer = async ({
   }
 
   try {
-    const answer = validatedFields.data.answer;
+    const answer = validatedFields.data.answer.trim();
 
     const question = await db.question.findUnique({
       where: { sequence: questionSequence },
@@ -48,6 +48,23 @@ export const submitAnswer = async ({
       };
     }
 
+    const checkForPreviousSubmission = await db.userSubmission.findFirst({
+      where: {
+        question: {
+          sequence: questionSequence,
+        },
+        user: {
+          id: userId,
+        },
+      },
+    });
+
+    if (checkForPreviousSubmission) {
+      return {
+        success: true,
+        message: "You've already submitted an answer for this question.",
+      };
+    }
 
     await db.userSubmission.create({
       data: {
@@ -64,6 +81,15 @@ export const submitAnswer = async ({
         },
       },
     });
+
+    await db.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        currentQuestionSequence: questionSequence + 1,
+      },
+    })
 
     return {
       success: true,

@@ -1,9 +1,4 @@
 import { db } from "@/server/db";
-// import Link from "next/link";
-// import { Input } from "@nextui-org/react";
-// import { AiOutlineEnter } from "react-icons/ai";
-// import { Button } from "@nextui-org/react";
-// import { toast } from "sonner";
 import questions from "@/../prisma/data/questions.json";
 import { getServerAuthSession } from "@/server/auth";
 import { redirect } from "next/navigation";
@@ -20,12 +15,25 @@ const Question = async ({ params }: { params: { id: string } }) => {
 
   const userId = session?.user?.id!;
 
-  const userSubmissionsForQuestion = await db.userSubmission.findUnique({
+  const userData = await db.user.findUnique({
+    where: { id: userId },
+  })
+
+  if (userData?.currentQuestionSequence !== questionSequence) {
+    redirect(`/q/${userData?.currentQuestionSequence}`);
+  }
+
+  if(userData?.currentQuestionSequence === totalQuestions) {
+    redirect(`/end`);
+  }
+
+  // Maybe Not Needed
+  const userSubmissionsForQuestion = await db.userSubmission.findFirst({
     where: {
       question: {
         sequence: questionSequence,
       },
-      id: userId,
+      userId: userId,
     },
     include: {
       user: {
