@@ -5,8 +5,8 @@ import { Providers } from "./providers";
 import { Toaster } from "sonner";
 
 export const metadata = {
-  title: "Scavenger Hunt | MLSA KIIT Chapter",
-  description: "A Fun Scavenger Hunt Game by MLSA KIIT Chapter",
+  title: "Kryptic Hunt | MLSA KIIT Chapter",
+  description: "A Fun Kryptic Hunt Game by MLSA KIIT Chapter",
   // icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

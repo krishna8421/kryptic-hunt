@@ -1,6 +1,7 @@
 "use server";
 
 import { submitAnswerSchema } from "@/schemas/answer";
+import questions from "@/../prisma/data/questions.json";
 import { db } from "@/server/db";
 
 interface ISubmitAnswerProps {
@@ -81,15 +82,28 @@ export const submitAnswer = async ({
         },
       },
     });
+    const totalQuestions = questions.length;
 
-    await db.user.update({
-      where: {
-        id: userId,
-      },
-      data: {
-        currentQuestionSequence: questionSequence + 1,
-      },
-    })
+    if(totalQuestions === questionSequence){
+      await db.user.update({
+        where: {
+          id: userId,
+        },
+        data: {
+          hasCompleted: true,
+        },
+      })
+    }else{
+      await db.user.update({
+        where: {
+          id: userId,
+        },
+        data: {
+          currentQuestionSequence: questionSequence + 1,
+        },
+      })
+    }
+
 
     return {
       success: true,

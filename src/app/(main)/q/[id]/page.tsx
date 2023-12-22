@@ -17,14 +17,14 @@ const Question = async ({ params }: { params: { id: string } }) => {
 
   const userData = await db.user.findUnique({
     where: { id: userId },
-  })
+  });
+
+  if (userData?.hasCompleted) {
+    redirect(`/end`);
+  }
 
   if (userData?.currentQuestionSequence !== questionSequence) {
     redirect(`/q/${userData?.currentQuestionSequence}`);
-  }
-
-  if(userData?.currentQuestionSequence === totalQuestions) {
-    redirect(`/end`);
   }
 
   // Maybe Not Needed
@@ -74,7 +74,7 @@ const Question = async ({ params }: { params: { id: string } }) => {
         <QuestionForm
           questionSequence={questionSequence}
           userId={userId}
-          isEnd={questionSequence === totalQuestions}
+          hint={question?.hint}
         />
       </div>
     </div>

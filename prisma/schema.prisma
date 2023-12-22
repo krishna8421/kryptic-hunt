@@ -16,6 +16,7 @@ model User {
     phoneNumber             String?
     password                String
     currentQuestionSequence Int     @default(1)
+    hasCompleted            Boolean @default(false)
 
     UserSubmission UserSubmission[]
 }

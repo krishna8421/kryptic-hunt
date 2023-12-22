@@ -10,13 +10,13 @@ import { useRouter } from "next/navigation";
 interface IQuestionFormProps {
   questionSequence: number;
   userId: string;
-  isEnd: boolean;
+  hint: string | null;
 }
 
 const QuestionForm = ({
   questionSequence,
   userId,
-  isEnd,
+  hint,
 }: IQuestionFormProps) => {
   const router = useRouter();
   const onSubmitAnswer = async (formData: FormData) => {
@@ -29,10 +29,6 @@ const QuestionForm = ({
 
     toast.success(res.message);
 
-    if (isEnd) {
-      router.push(`/end`);
-      return;
-    }
     router.push(`/q/${questionSequence + 1}`);
   };
 
@@ -47,6 +43,12 @@ const QuestionForm = ({
         endContent={<AiOutlineEnter className="" />}
       />
       <input type="submit" hidden />
+      {hint && (
+        <span className="mt-2 text-sm text-gray-300">
+          <span className="font-semibold">Hint: </span>
+          <span>{hint}</span>
+        </span>
+      )}
       <div className="mt-4">
         <Button color="success" type="submit">
           Submit
