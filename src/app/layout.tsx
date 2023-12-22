@@ -7,7 +7,7 @@ import { Toaster } from "sonner";
 export const metadata = {
   title: "Kryptic Hunt | MLSA KIIT Chapter",
   description: "A Fun Kryptic Hunt Game by MLSA KIIT Chapter",
-  // icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

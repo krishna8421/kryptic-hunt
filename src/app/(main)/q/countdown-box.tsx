@@ -18,19 +18,19 @@ const renderer = ({
         <table>
           <tr>
             <td className="w-32 text-center text-7xl">
-              {days > 10 ? "" : "0"}
+              {days >= 10 ? "" : "0"}
               {days}
             </td>
             <td className="w-32 text-center text-7xl">
-              {hours > 10 ? "" : "0"}
+              {hours >= 10 ? "" : "0"}
               {hours}
             </td>
             <td className="w-32 text-center text-7xl">
-              {minutes > 10 ? "" : "0"}
+              {minutes >= 10 ? "" : "0"}
               {minutes}
             </td>
             <td className="w-32 text-center text-7xl">
-              {seconds > 10 ? "" : "0"}
+              {seconds >= 10 ? "" : "0"}
               {seconds}
             </td>
           </tr>
