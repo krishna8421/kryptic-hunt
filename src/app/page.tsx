@@ -1,7 +1,6 @@
 import { getServerAuthSession } from "@/server/auth";
 import { ArrowRightIcon } from "./arrow-right-icon";
 import Link from "next/link";
-import LogoutButton from "@/components/LogoutButton";
 
 const HomePage = async () => {
   const session = await getServerAuthSession();
@@ -16,7 +15,6 @@ const HomePage = async () => {
           Click on the arrow to start your quiz journey.
         </p>
       </header>
-      <LogoutButton />
       <Link
         className="inline-flex items-center justify-center rounded-full bg-blue-600 p-5 shadow-lg transition-shadow duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
         href={session ? "/q/1" : "/auth/login"}

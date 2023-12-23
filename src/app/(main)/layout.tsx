@@ -1,5 +1,4 @@
-// import { getServerAuthSession } from "@/server/auth";
-// import { redirect } from "next/navigation";
+import Footer from "@/components/footer";
 import NavBar from "@/components/nav-bar";
 import { ReactNode } from "react";
 
@@ -12,6 +11,7 @@ export default async function MainLayout({
     <div className="">
       <NavBar />
       {children}
+      <Footer />
     </div>
   );
 }

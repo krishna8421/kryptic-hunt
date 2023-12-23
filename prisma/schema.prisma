@@ -16,6 +16,7 @@ model User {
     phoneNumber             String?
     password                String
     currentQuestionSequence Int     @default(1)
+    isVerified              Boolean @default(false)
     hasCompleted            Boolean @default(false)
 
     UserSubmission UserSubmission[]
@@ -34,7 +35,7 @@ model Question {
 }
 
 model UserSubmission {
-    id         String  @id @default(uuid())
+    id         String @id @default(uuid())
     userId     String
     questionId String
     answer     String

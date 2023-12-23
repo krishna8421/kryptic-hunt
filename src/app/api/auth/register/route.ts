@@ -1,4 +1,5 @@
 import { hashPassword } from "@/lib/bcrypt";
+import { generateVerificationCode, sendConfirmationEmail } from "@/lib/utils";
 import { registerSchema } from "@/schemas/auth";
 import { db } from "@/server/db";
 import { NextRequest, NextResponse } from "next/server";
@@ -62,6 +63,14 @@ export async function POST(request: NextRequest) {
         phoneNumber,
         password: hashedPassword,
       },
+    });
+
+    const code = generateVerificationCode(kiitEmail);
+
+    await sendConfirmationEmail({
+      email: kiitEmail,
+      name: name,
+      verificationCode: code,
     });
 
     return NextResponse.json(

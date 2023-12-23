@@ -12,7 +12,7 @@ const LeaderboardTable = ({ topPlayersUserIds }: LeaderboardTableProps) => {
       {topPlayersUserIds.map(async (userId, index) => {
         const userData = await db.user.findUnique({
           where: { id: userId },
-          select: { name: true, kiitEmail: true },
+          select: { name: true },
         });
 
         const count = await db.userSubmission.count({
@@ -20,14 +20,13 @@ const LeaderboardTable = ({ topPlayersUserIds }: LeaderboardTableProps) => {
         });
 
         return (
-          <tr key={index} className="bg-white dark:bg-gray-800">
+          <tr key={index} className="bg-zinc-900">
             <th
               scope="row"
-              className="whitespace-nowrap text-center px-6 py-4 font-medium text-gray-900 dark:text-white"
+              className="whitespace-nowrap text-center px-6 py-4 font-medium text-white"
             >
               {userData?.name ?? "Unknown"}
             </th>
-            {/* <td className="px-6 py-4 text-center">{userData?.kiitEmail.split("@")[0] ?? "Unknown"}</td> */}
             <td className="px-6 py-4 text-center">{count}</td>
           </tr>
         );

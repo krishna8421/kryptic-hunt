@@ -45,4 +45,8 @@ export const rulesData = [
     title: "What is the nature of participation?",
     rule: "The hunt is to be played on an individual basis; team forming is not allowed.",
   },
+  {
+    title: "My Name is not showing on the leaderboard?",
+    rule: "You must verify your email to be able to see your name on the leaderboard. If you have already verified your email, please contact the admins.",
+  },
 ];
