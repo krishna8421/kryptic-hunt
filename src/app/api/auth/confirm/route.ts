@@ -8,20 +8,20 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get("code");
 
   if (!code) {
-    return NextResponse.redirect("/auth/login");
+    return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   let decoded: any;
   try {
     decoded = jwt.verify(code, env.NEXTAUTH_SECRET);
   } catch (err) {
-    return NextResponse.redirect("/auth/login");
+    return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   const email = decoded.email;
 
   if (!email) {
-    return NextResponse.redirect("/auth/login");
+    return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
   await db.user.update({
@@ -33,5 +33,5 @@ export async function GET(request: NextRequest) {
     },
   });
 
-  return NextResponse.redirect("/verified");
+  return NextResponse.redirect(new URL("/verified", request.url));
 }
