@@ -4,6 +4,8 @@ import { ReactNode, Suspense } from "react";
 import { Providers } from "./providers";
 import { Toaster } from "sonner";
 import Loader from "@/components/Loader";
+import NavBar from "@/components/nav-bar";
+import Footer from "@/components/footer";
 
 export const metadata = {
   title: "Kryptic Hunt | MLSA KIIT Chapter",
@@ -17,7 +19,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`font-sans ${GeistSans.className}`}>
         <Suspense fallback={<Loader />}>
           <Providers>
-            {children}
+            <div className="flex min-h-screen flex-col">
+              <NavBar />
+              <div className="flex-grow">{children}</div>
+              <Footer />
+            </div>
             <Toaster />
           </Providers>
         </Suspense>
