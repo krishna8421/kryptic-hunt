@@ -21,6 +21,7 @@ import { FaChartColumn } from "react-icons/fa6";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import NextLink from "next/link";
 
 interface NavBarDataProps {
   isAuthenticated: boolean;
@@ -62,7 +63,9 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
             priority={true}
             quality={100}
           />
-          <p className="ml-2 font-bold text-inherit">Kryptic Hunt</p>
+          <NextLink color="foreground" href="/">
+            <p className="ml-2 font-bold text-inherit select-none">Kryptic Hunt</p>
+          </NextLink>
         </NavbarBrand>
       </NavbarContent>
 
