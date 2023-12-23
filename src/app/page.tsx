@@ -22,6 +22,7 @@ const HomePage = async () => {
         <ArrowRightIcon className="h-12 w-12 text-white" />
         <span className="sr-only">Start Quiz</span>
       </Link>
+      <h3 className="text-3xl text-gray-300 font-semibold">Let the Fun Begin</h3>
     </main>
   );
 };
