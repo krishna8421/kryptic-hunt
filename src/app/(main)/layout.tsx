@@ -8,9 +8,9 @@ export default async function MainLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="">
+    <div className="flex min-h-screen flex-col">
       <NavBar />
-      {children}
+      <div className="flex-grow">{children}</div>
       <Footer />
     </div>
   );

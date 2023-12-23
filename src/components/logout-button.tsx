@@ -9,7 +9,7 @@ const LogoutButton = () => {
       onClick={() => {
         signOut();
       }}
-      className="cursor-pointer text-red-500"
+      className="cursor-pointer text-red-500 "
     />
   );
 };

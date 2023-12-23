@@ -45,7 +45,7 @@ const LoginForm = () => {
   });
 
   return (
-    <Card isBlurred className="m-4 mb-20 mt-40 px-4" shadow="lg">
+    <Card isBlurred className="m-4 mb-20 mt-32 px-4" shadow="lg">
       <CardBody>
         <h1 className="p-4 text-center text-2xl font-bold">Login</h1>
         <form

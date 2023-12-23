@@ -4,7 +4,6 @@ import { FaChartColumn } from "react-icons/fa6";
 import Image from "next/image";
 import { getServerAuthSession } from "@/server/auth";
 import NavBarAuthButton from "./nav-bar-auth-button";
-import LogoutButton from "./logout-button";
 import { FaRegQuestionCircle } from "react-icons/fa";
 
 const NavBar = async () => {
@@ -51,7 +50,6 @@ const NavBar = async () => {
           isAuthenticated={session ? true : false}
           name={session?.user?.name}
         />
-        <LogoutButton />
       </div>
     </nav>
   );

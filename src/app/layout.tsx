@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { Providers } from "./providers";
 import { Toaster } from "sonner";
+import Loader from "@/components/Loader";
 
 export const metadata = {
   title: "Kryptic Hunt | MLSA KIIT Chapter",
@@ -14,10 +15,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
       <body className={`font-sans ${GeistSans.className}`}>
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        <Suspense fallback={<Loader />}>
+          <Providers>
+            {children}
+            <Toaster />
+          </Providers>
+        </Suspense>
       </body>
     </html>
   );
