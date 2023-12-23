@@ -76,7 +76,7 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
           </Link>
         </NavbarItem>
         <NavbarItem isActive={path.split("/")[1] === "leaderboard"}>
-          <Link href="/leaderboard">
+          <Link color="foreground" href="/leaderboard">
             <span className="flex items-center justify-center gap-2 hover:text-gray-100 hover:underline">
               <FaChartColumn />
               Leaderboard

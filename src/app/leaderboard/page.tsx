@@ -1,11 +1,6 @@
 import { db } from "@/server/db";
 import React from "react";
-import dynamic from "next/dynamic";
 import TableData from "./table-data";
-
-// const LeaderboardTableNoSSR = dynamic(() => import("./leaderboard-table"), {
-//   ssr: false,
-// });
 
 export interface ITableData {
   count: number;
@@ -55,19 +50,6 @@ const LeaderBoardPage = async () => {
     <div className=" bg-red m-auto mt-20 flex max-w-2xl flex-col gap-12 px-4">
       <h1 className="pl-4 text-4xl font-semibold">Leaderboard</h1>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        {/* <table className="w-full text-left text-sm text-gray-400">
-          <thead className="bg-zinc-800 text-xs uppercase text-gray-400">
-            <tr>
-              <th scope="col" className="px-2 py-4 text-center md:px-6">
-                Name
-              </th>
-              <th scope="col" className="px-2 py-3 text-center md:px-6">
-                Total Submissions
-              </th>
-            </tr>
-          </thead>
-          <LeaderboardTableNoSSR topPlayersUserIds={topPlayersUserIds} />
-        </table> */}
         <TableData data={data} />
       </div>
     </div>

@@ -12,6 +12,7 @@ import { MdPassword } from "react-icons/md";
 import InputBox from "../InputBox";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { TypeOf } from "zod";
+import { revalidate } from "../revalidate";
 
 type loginSchemaType = TypeOf<typeof loginSchema>;
 
@@ -31,14 +32,15 @@ const LoginForm = () => {
           email: values.email,
           password: values.password,
         });
-        console.log(res);
         if (res?.error) {
           toast.error(res?.error || "Unknown error Occurred");
         } else {
           toast.success("Logged in Successfully");
+          revalidate()
           router.push("/q");
         }
       } catch (err) {
+        console.log(err);
         toast.error("Unknown error Occurred");
       }
     },

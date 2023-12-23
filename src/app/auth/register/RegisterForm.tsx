@@ -14,6 +14,7 @@ import { TypeOf } from "zod";
 import InputBox from "../InputBox";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { useRouter } from "next/navigation";
+import { revalidate } from "../revalidate";
 
 type registerSchemaType = TypeOf<typeof registerSchema>;
 
@@ -50,6 +51,7 @@ const RegisterForm = () => {
             password: values.password,
           });
           toast.success("Logged In Successfully");
+          revalidate()
           router.push("/q");
         }
       } catch (err) {
