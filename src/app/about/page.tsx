@@ -2,9 +2,9 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className=" bg-red m-auto my-20 flex max-w-2xl flex-col gap-12">
+    <div className=" bg-red m-auto my-20 flex max-w-2xl flex-col gap-12 px-4">
       <h1 className="pl-4 text-4xl font-semibold">About</h1>
-      <div className="relative overflow-x-auto shadow-md flex flex-col gap-12">
+      <div className="relative flex flex-col gap-12 overflow-x-auto shadow-md">
         <div>
           <h1 className="text-bold py-4 text-xl font-semibold">
             Welcome to the MLSA, KIIT Kryptic Hunt!
@@ -35,9 +35,9 @@ const AboutPage = () => {
           <span className="text-sm text-gray-400">
             Exclusively for current KIIT students, the Kryptic Hunt beckons
             those intrigued by Kryptic challenges, regardless of coding
-            background. Whether you&apos;re well-versed in ciphers and steganography
-            or eager to explore these tools for the first time, this adventure
-            is open to all.
+            background. Whether you&apos;re well-versed in ciphers and
+            steganography or eager to explore these tools for the first time,
+            this adventure is open to all.
           </span>
         </div>
         <div>
