@@ -67,7 +67,7 @@ const AboutPage = () => {
             Join Us in Unveiling the Secrets!
           </h1>
           <span className="text-sm text-gray-400">
-            The [Hunt Name] promises an exhilarating 48-hour journey where your
+            The Kryptic Hunt promises an exhilarating 48-hour journey where your
             prowess in decoding mysteries using ciphers, steganography, and more
             will shine. Ready to embrace this challenge? Prepare for a
             captivating exploration of puzzles and hidden messages where your

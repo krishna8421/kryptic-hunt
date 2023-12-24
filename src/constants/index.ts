@@ -27,7 +27,7 @@ export const rulesData = [
   },
   {
     title: "Where can participants find hints?",
-    rule: "Hints will be released on official social media, particularly on the Discord Server. It is highly recommended to join the server: https://discord.gg/RU8YDMku7N",
+    rule: "Hints will be released on official social media, particularly on the Discord Server. It is highly recommended to join the server: https://discord.gg/BW28wXGfsZ",
   },
   {
     title: "What are the rules for answers?",
