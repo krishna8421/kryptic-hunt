@@ -36,7 +36,10 @@
     "sonner": "^1.2.4",
     "validator": "^13.11.0",
     "zod": "^3.22.4",
-    "zod-formik-adapter": "^1.2.0"
+    "zod-formik-adapter": "^1.2.0",
+    "@trigger.dev/sdk": "^2.3.8",
+    "@trigger.dev/nextjs": "^2.3.8",
+    "@trigger.dev/react": "^2.3.8"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -62,5 +65,8 @@
   "ct3aMetadata": {
     "initVersion": "7.24.2"
   },
-  "packageManager": "pnpm@8.12.0"
+  "packageManager": "pnpm@8.12.0",
+  "trigger.dev": {
+    "endpointId": "dev-TiN1"
+  }
 }
