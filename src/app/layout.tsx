@@ -16,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans ${GeistSans.className}`}>
+      <body
+        className={`bg-hero bg-cover bg-center bg-no-repeat font-sans ${GeistSans.className}`}
+      >
         <Suspense fallback={<Loader />}>
           <Providers>
             <div className="flex min-h-screen flex-col">
