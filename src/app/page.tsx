@@ -22,7 +22,7 @@ const HomePage = async () => {
         <ArrowRightIcon className="h-12 w-12 text-white" />
         <span className="sr-only">Enter</span>
       </Link>
-      <h3 className="text-3xl text-gray-300 font-semibold">Let the  Unfold...</h3>
+      <h3 className="text-3xl text-gray-300 font-semibold">Let the Hunt  Unfold...</h3>
     </main>
   );
 };
