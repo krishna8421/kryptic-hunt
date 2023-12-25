@@ -12,7 +12,7 @@ const HomePage = async () => {
           Kryptic Hunt MLSA
         </h1>
         <p className="mt-4 text-center text-sm font-medium text-gray-500">
-          Click on the arrow to start your quiz journey.
+          Click on the arrow at your own risk!
         </p>
       </header>
       <Link
@@ -20,9 +20,9 @@ const HomePage = async () => {
         href={session ? "/q/1" : "/auth/login"}
       >
         <ArrowRightIcon className="h-12 w-12 text-white" />
-        <span className="sr-only">Start Quiz</span>
+        <span className="sr-only">Enter</span>
       </Link>
-      <h3 className="text-3xl text-gray-300 font-semibold">Let the Fun Begin</h3>
+      <h3 className="text-3xl text-gray-300 font-semibold">Let the  Unfold...</h3>
     </main>
   );
 };
