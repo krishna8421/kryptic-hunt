@@ -35,7 +35,7 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
   const menuItems = [
     {
       name: "Guide",
-      link: "/guide",
+      link: "/rules",
     },
     {
       name: "Leaderboard",
@@ -47,8 +47,8 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
     },
     {
       name: "Discord",
-      link: "https://discord.gg/BW28wXGfsZ"
-    }
+      link: "https://discord.gg/BW28wXGfsZ",
+    },
   ];
 
   return (
@@ -68,14 +68,16 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
             quality={100}
           />
           <NextLink color="foreground" href="/">
-            <p className="ml-2 font-bold text-inherit select-none">Kryptic Hunt</p>
+            <p className="ml-2 select-none font-bold text-inherit">
+              Kryptic Hunt
+            </p>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-        <NavbarItem isActive={path.split("/")[1] === "guide"}>
-          <Link color="foreground" href="/guide">
+        <NavbarItem isActive={path.split("/")[1] === "rules"}>
+          <Link color="foreground" href="/rules">
             <span className="flex items-center justify-center gap-2 hover:text-gray-100 hover:underline">
               <FiBook />
               Guide
@@ -99,12 +101,16 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
           </Link>
         </NavbarItem>
         <NavbarItem isActive={path.split("/")[1] === "Discord"}>
-          <Link color="foreground" href="https://discord.gg/BW28wXGfsZ" target="__blank">
+          <Link
+            color="foreground"
+            href="https://discord.gg/BW28wXGfsZ"
+            target="__blank"
+          >
             <span className="flex items-center justify-center gap-2 hover:text-gray-100 hover:underline">
               <FaUser></FaUser>
               Discord
             </span>
-          </Link> 
+          </Link>
         </NavbarItem>
       </NavbarContent>
 

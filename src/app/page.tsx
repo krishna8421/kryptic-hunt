@@ -6,7 +6,7 @@ const HomePage = async () => {
   const session = await getServerAuthSession();
 
   return (
-    <main className="mt-24 flex min-h-screen flex-col items-center gap-16">
+    <main className="mt-28 flex flex-col items-center gap-16">
       <header className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
         <h1 className="bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 bg-clip-text text-center text-7xl font-bold text-transparent">
           Kryptic Hunt MLSA
@@ -22,7 +22,9 @@ const HomePage = async () => {
         <ArrowRightIcon className="h-12 w-12 text-white" />
         <span className="sr-only">Enter</span>
       </Link>
-      <h3 className="text-3xl text-gray-300 font-semibold">Let the Hunt  Unfold...</h3>
+      <h3 className="text-3xl font-semibold text-gray-300">
+        Let the Hunt Unfold...
+      </h3>
     </main>
   );
 };
