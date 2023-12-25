@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Providers>
             <div className="flex min-h-screen flex-col">
               <NavBar />
-              <div className="flex-grow">{children}</div>
+              <div className="h-full flex-grow">{children}</div>
               <Footer />
             </div>
             <Toaster />
