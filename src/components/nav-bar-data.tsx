@@ -34,8 +34,8 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
 
   const menuItems = [
     {
-      name: "Rules",
-      link: "/rules",
+      name: "Guide",
+      link: "/guide",
     },
     {
       name: "Leaderboard",
@@ -74,11 +74,11 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
       </NavbarContent>
 
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-        <NavbarItem isActive={path.split("/")[1] === "rules"}>
-          <Link color="foreground" href="/rules">
+        <NavbarItem isActive={path.split("/")[1] === "guide"}>
+          <Link color="foreground" href="/guide">
             <span className="flex items-center justify-center gap-2 hover:text-gray-100 hover:underline">
               <FiBook />
-              Rules
+              Guide
             </span>
           </Link>
         </NavbarItem>
