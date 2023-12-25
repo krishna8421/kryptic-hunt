@@ -21,7 +21,7 @@ interface ITableData {
   count: number;
 }
 
-const TableData = ({ data }: TableDataProps) => {
+const ITableData = ({ data }: TableDataProps) => {
   return (
     <Table aria-label="Leaderboard table">
       <TableHeader>
