@@ -1,6 +1,5 @@
 "use client";
 
-import { FaTableColumns } from "react-icons/fa6";
 import { ITableData } from "./page";
 import {
   Table,
@@ -15,13 +14,13 @@ interface TableDataProps {
   data: ITableData[];
 }
 
-interface ITableData {
-  rank: number;
-  name: string;
-  count: number;
-}
-
 const TableData = ({ data }: TableDataProps) => {
+  const rankedData = data.map((row) => ({ ...row, rank: 0 }))
+  rankedData.sort((a, b) => b.count - a.count);
+  rankedData.forEach((row, index) => {
+    row.rank = index + 1; // Start ranks from 1
+  });
+
   return (
     <Table aria-label="Leaderboard table">
       <TableHeader>
@@ -30,8 +29,8 @@ const TableData = ({ data }: TableDataProps) => {
         <TableColumn>Level</TableColumn>
       </TableHeader>
       <TableBody>
-        {data.map((row) => (
-            <TableRow key={row.rank}>
+        {rankedData.map((row) => (
+          <TableRow key={row.index}>
             <TableCell>{row.rank}</TableCell>
             <TableCell>{row.name}</TableCell>
             <TableCell>{row.count}</TableCell>
