@@ -12,7 +12,7 @@ const HomePage = async () => {
           Kryptic Hunt MLSA
         </h1>
         <p className="mt-4 text-center text-sm font-medium text-gray-500">
-          Click on the arrow at your own risk!
+          Continue at your own risk!
         </p>
       </header>
       <Link
