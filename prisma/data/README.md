@@ -5,7 +5,7 @@
   {
     "sequence": 1,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac neque lacinia tortor placerat dapibus.",
-    "answer": "Lorem",
+    "answer": "lorem",
     "hint": "hint" // optional
   }
 ]

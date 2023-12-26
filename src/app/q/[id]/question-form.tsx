@@ -50,7 +50,7 @@ const QuestionForm = ({
         </span>
       )}
       <div className="mt-4">
-        <Button color="success" type="submit">
+        <Button color="success" type="submit" className="text-white">
           Submit
         </Button>
       </div>
