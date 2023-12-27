@@ -19,7 +19,7 @@ const HomePage = async () => {
         className="inline-flex items-center justify-center rounded-full bg-blue-600 p-5 shadow-lg transition-shadow duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
         href={session ? "/q/1" : "/auth/login"}
       >
-        <ArrowRightIcon className="h-12 w-12 text-white" />
+        <ArrowRightIcon className="h-10 w-10 text-white" />
         <span className="sr-only">Enter</span>
       </Link>
       <h3 className="text-3xl font-semibold text-gray-300">
