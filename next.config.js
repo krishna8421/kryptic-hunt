@@ -32,7 +32,7 @@ const redirects = async () => {
   ];
 };
 
-export default {
+const config = {
   async headers() {
     return await headers();
   },
@@ -40,3 +40,5 @@ export default {
     return await redirects();
   },
 };
+
+export default config;
