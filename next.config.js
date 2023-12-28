@@ -1,10 +1,6 @@
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
- */
-await import("./src/env.js");
+import "./src/env.js";
 
-const securityHeaders = () => [
+const config = () => [
   {
     key: "X-Content-Type-Options",
     value: "nosniff",
@@ -18,17 +14,5 @@ const securityHeaders = () => [
     value: "1; mode=block",
   },
 ];
-
-/** @type {import("next").NextConfig} */
-const config = {
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: securityHeaders(),
-      },
-    ];
-  },
-};
 
 export default config;
