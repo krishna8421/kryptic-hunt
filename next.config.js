@@ -4,14 +4,31 @@
  */
 await import("./src/env.js");
 
+const securityHeaders = () => [
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
+  {
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
+  },
+];
+
 /** @type {import("next").NextConfig} */
 const config = {
-  future: { webpack5: true },
-  webpack: (config) => {
-      config.resolve.alias.canvas = false
-      config.resolve.alias.encoding = false
-      return config
-  }
-}
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders(),
+      },
+    ];
+  },
+};
 
 export default config;
