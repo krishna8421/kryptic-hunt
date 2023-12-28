@@ -2,9 +2,22 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
+  const options = {
+    timeZone: "Asia/Kolkata",
+    hour12: false,
+  };
+
   const currentDate = new Date();
-  const targetDate = new Date("2023-12-29");
-  const diff = targetDate.getTime() - currentDate.getTime();
+  const istTimeCurrent = currentDate.toLocaleString("en-US", options);
+  
+  const targetDate = new Date("2023-12-29T00:00:00.000Z").toLocaleString(
+    "en-US",
+    options,
+  );
+  
+  const diff = Date.parse(targetDate) - Date.parse(istTimeCurrent);
+
+
 
   if (diff > 0 && process.env.NODE_ENV === "production") {
     return NextResponse.redirect(new URL("/q", request.url));
