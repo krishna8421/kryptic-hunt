@@ -1,6 +1,6 @@
 import "./src/env.js";
 
-const config = () => [
+const headers = () => [
   {
     key: "X-Content-Type-Options",
     value: "nosniff",
@@ -15,4 +15,15 @@ const config = () => [
   },
 ];
 
-export default config;
+const redirects = async () => [
+  {
+    source: '/hakenkreuz',
+    destination: 'https://medium.com/msackiit/2022-and-thats-a-wrap-393def75a4f0',
+    permanent: true,
+  },
+];
+
+export default {
+  headers,
+  redirects,
+};
