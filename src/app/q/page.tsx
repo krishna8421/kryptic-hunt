@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 // import { getServerAuthSession } from "@/server/auth";
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
 const CountdownBoxNoSSR = dynamic(() => import("./countdown-box"), {
   ssr: false,
@@ -20,9 +20,9 @@ const QuizPage = async () => {
   // const istTimeCurrent = currentDate.toLocaleString("en-US", options);
 
   // if (session && istTimeCurrent > istTimeLimit) {
-  //   redirect("/q/1");
   // }
 
+  redirect("/q/1");
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-2">
       <h1 className="text-center text-6xl">
