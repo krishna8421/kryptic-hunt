@@ -9,27 +9,28 @@ export interface ITableData {
 }
 
 const LeaderBoardPage = async () => {
-  const topPlayers = await db.userSubmission.groupBy({
-    by: ["userId"],
+  const topPlayers = await db.user.groupBy({
+    by: ["id"],
     _count: true,
     _min: {
-      submissionTime: true,
+      currentQuestionSequence: true,
     },
     orderBy: [
       {
-        _count: {
-          submissionTime: "desc",
+        _min: {
+          currentQuestionSequence: "desc",
         },
       },
     ],
     take: 10,
   });
 
-  const topPlayersUserIds = topPlayers.map((player) => player.userId);
+  const topPlayersUserIds = topPlayers.map((player) => player.id);
 
   const data: ITableData[] = [];
 
-  topPlayersUserIds.map(async (userId, index) => {
+  for (let index = 0; index < topPlayersUserIds.length; index++) {
+    const userId = topPlayersUserIds[index];
     const userData = await db.user.findUnique({
       where: { id: userId },
       select: { name: true },
@@ -44,7 +45,7 @@ const LeaderBoardPage = async () => {
       name: userData?.name ?? "Unknown",
       index: index + 1,
     });
-  });
+  }
 
   return (
     <div className=" bg-red m-auto mt-20 flex max-w-2xl flex-col gap-12 px-4">
