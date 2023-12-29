@@ -22,7 +22,7 @@ const QuizPage = async () => {
   // if (session && istTimeCurrent > istTimeLimit) {
   // }
 
-  redirect("/q/1)");
+  redirect("/q/1");
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-2">
       <h1 className="text-center text-6xl">
