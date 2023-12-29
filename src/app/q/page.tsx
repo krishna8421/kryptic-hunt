@@ -13,7 +13,7 @@ const QuizPage = async () => {
     hour12: false,
   };
   const currentDate = new Date();
-  const istTimeLimit = new Date("2023-12-30T12:00:00.000Z").toLocaleString(
+  const istTimeLimit = new Date("2023-12-29T12:00:00.000Z").toLocaleString(
     "en-US",
     options,
   );
