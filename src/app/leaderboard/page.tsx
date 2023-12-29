@@ -5,27 +5,35 @@ import TableData from "./table-data";
 export interface ITableData {
   count: number;
   name: string;
-  index: number;
+  rank: number;
 }
 
 const LeaderBoardPage = async () => {
-  const topPlayers = await db.user.groupBy({
-    by: ["id"],
-    _count: true,
+  const topPlayers = await db.userSubmission.groupBy({
+    by: ["userId"],
+    _count: {
+      submissionTime: true,
+    },
     _min: {
-      currentQuestionSequence: true,
+      submissionTime: true,
     },
     orderBy: [
       {
+        _count: {
+          submissionTime: "desc",
+        },
+      },
+      {
         _min: {
-          currentQuestionSequence: "desc",
+          submissionTime: "asc",
         },
       },
     ],
     take: 10,
   });
+  
 
-  const topPlayersUserIds = topPlayers.map((player) => player.id);
+  const topPlayersUserIds = topPlayers.map((player) => player.userId);
 
   const dataPromises = topPlayersUserIds.map(async (userId, index) => {
     const userData = await db.user.findUnique({
@@ -40,7 +48,7 @@ const LeaderBoardPage = async () => {
     return {
       count,
       name: userData?.name ?? "Unknown",
-      index: index + 1,
+      rank: index + 1,
     };
   });
 

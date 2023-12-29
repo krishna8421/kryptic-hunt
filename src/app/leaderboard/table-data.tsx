@@ -15,12 +15,6 @@ interface TableDataProps {
 }
 
 const TableData = ({ data }: TableDataProps) => {
-  
-  const rankedData = data.map((row) => ({ ...row, rank: 0 }))
-  rankedData.sort((a, b) => b.count - a.count);
-  rankedData.forEach((row, index) => {
-    row.rank = index + 1; // Start ranks from 1
-  });
 
   return (
     <Table aria-label="Leaderboard table">
@@ -30,8 +24,8 @@ const TableData = ({ data }: TableDataProps) => {
         <TableColumn>Level</TableColumn>
       </TableHeader>
       <TableBody>
-        {rankedData.map((row) => (
-          <TableRow key={row.index}>
+        {data.map((row) => (
+          <TableRow key={row.rank}>
             <TableCell>{row.rank}</TableCell>
             <TableCell>{row.name}</TableCell>
             <TableCell>{row.count}</TableCell>
