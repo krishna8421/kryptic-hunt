@@ -27,9 +27,29 @@ const LeaderBoardPage = async () => {
 
   const topPlayersUserIds = topPlayers.map((player) => player.userId);
 
-  const data: ITableData[] = [];
+  // const data: ITableData[] = [];
 
-  topPlayersUserIds.map(async (userId, index) => {
+  // topPlayersUserIds.map(async (userId, index) => {
+  //   const userData = await db.user.findUnique({
+  //     where: { id: userId },
+  //     select: { name: true },
+  //   });
+
+    
+  //   const count = await db.userSubmission.count({
+  //     where: { userId: userId },
+  //   });
+    
+  //   console.log({userData, count})
+
+  //   data.push({
+  //     count,
+  //     name: userData?.name ?? "Unknown",
+  //     index: index + 1,
+  //   });
+  // });
+
+  const dataPromises = topPlayersUserIds.map(async (userId, index) => {
     const userData = await db.user.findUnique({
       where: { id: userId },
       select: { name: true },
@@ -39,12 +59,14 @@ const LeaderBoardPage = async () => {
       where: { userId: userId },
     });
 
-    data.push({
+    return {
       count,
       name: userData?.name ?? "Unknown",
       index: index + 1,
-    });
+    };
   });
+
+  const data: ITableData[] = await Promise.all(dataPromises);
 
   return (
     <div className=" bg-red m-auto mt-20 flex max-w-2xl flex-col gap-12 px-4">

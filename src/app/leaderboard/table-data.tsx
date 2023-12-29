@@ -15,6 +15,7 @@ interface TableDataProps {
 }
 
 const TableData = ({ data }: TableDataProps) => {
+  
   const rankedData = data.map((row) => ({ ...row, rank: 0 }))
   rankedData.sort((a, b) => b.count - a.count);
   rankedData.forEach((row, index) => {
