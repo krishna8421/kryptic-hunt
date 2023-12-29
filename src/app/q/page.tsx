@@ -26,7 +26,7 @@ const QuizPage = async () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-2">
       <h1 className="text-center text-6xl">
-        Hunt begins on 30th December, 12:00 
+        Hunt begins on 29th December at 12 pm 
       </h1>
       <CountdownBoxNoSSR />
     </div>
