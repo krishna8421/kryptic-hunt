@@ -13,7 +13,7 @@ const QuizPage = async () => {
   //   hour12: false,
   // };
   // const currentDate = new Date();
-  // const istTimeLimit = new Date("2023-12-29T00:00:00.000Z").toLocaleString(
+  // const istTimeLimit = new Date("2023-12-29T12:00:00.000Z").toLocaleString(
   //   "en-US",
   //   options,
   // );
@@ -26,7 +26,7 @@ const QuizPage = async () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-2">
       <h1 className="text-center text-6xl">
-        Hunt begins on 29th December, 12:00 am
+        Hunt begins on 29th December at 12 pm 
       </h1>
       <CountdownBoxNoSSR />
     </div>

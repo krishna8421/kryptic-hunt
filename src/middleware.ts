@@ -10,7 +10,7 @@ export function middleware(_request: NextRequest) {
   // const currentDate = new Date();
   // const istTimeCurrent = currentDate.toLocaleString("en-US", options);
   
-  // const targetDate = new Date("2023-12-29T00:00:00.000Z").toLocaleString(
+  // const targetDate = new Date("2023-12-29T12:00:00.000Z").toLocaleString(
   //   "en-US",
   //   options,
   // );
@@ -20,7 +20,7 @@ export function middleware(_request: NextRequest) {
 
 
   // if (diff > 0 && process.env.NODE_ENV === "production") {
-  //   return NextResponse.redirect(new URL("/q", request.url));
+  //   return NextResponse.redirect(new URL("/q", _request.url));
   // }
   return NextResponse.next();
 }

@@ -9,45 +9,23 @@ export interface ITableData {
 }
 
 const LeaderBoardPage = async () => {
-  const topPlayers = await db.userSubmission.groupBy({
-    by: ["userId"],
+  const topPlayers = await db.user.groupBy({
+    by: ["id"],
     _count: true,
     _min: {
-      submissionTime: true,
+      currentQuestionSequence: true,
     },
     orderBy: [
       {
-        _count: {
-          submissionTime: "desc",
+        _min: {
+          currentQuestionSequence: "desc",
         },
       },
     ],
     take: 10,
   });
 
-  const topPlayersUserIds = topPlayers.map((player) => player.userId);
-
-  // const data: ITableData[] = [];
-
-  // topPlayersUserIds.map(async (userId, index) => {
-  //   const userData = await db.user.findUnique({
-  //     where: { id: userId },
-  //     select: { name: true },
-  //   });
-
-    
-  //   const count = await db.userSubmission.count({
-  //     where: { userId: userId },
-  //   });
-    
-  //   console.log({userData, count})
-
-  //   data.push({
-  //     count,
-  //     name: userData?.name ?? "Unknown",
-  //     index: index + 1,
-  //   });
-  // });
+  const topPlayersUserIds = topPlayers.map((player) => player.id);
 
   const dataPromises = topPlayersUserIds.map(async (userId, index) => {
     const userData = await db.user.findUnique({
