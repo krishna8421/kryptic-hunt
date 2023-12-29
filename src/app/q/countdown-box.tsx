@@ -50,7 +50,7 @@ const CountdownBox = () => {
   return (
     <Countdown
       key={5}
-      date={`${registrationBegin.year}-${registrationBegin.month}-${registrationBegin.date}T00:00:00`}
+      date={`${registrationBegin.year}-${registrationBegin.month}-${registrationBegin.date}T12:00:00`}
       renderer={renderer}
     />
   );
