@@ -29,6 +29,16 @@ const redirects = async () => {
       destination: 'https://medium.com/msackiit/2022-and-thats-a-wrap-393def75a4f0',
       permanent: true,
     },
+    {
+      source: '/johncena',
+      destination: 'https://drive.google.com/file/d/1CwD5SABZWwF21IbX8LuCYloP90yuvU6L/view?usp=sharing',
+      permanent: true,
+    },
+    {
+      source: '/youcantseeme',
+      destination: 'https://drive.google.com/file/d/1lin1s-YRuCQ28x7rI9zQbJUDU5WprHrC/view?usp=sharing',
+      permanent: true,
+    },
   ];
 };
 

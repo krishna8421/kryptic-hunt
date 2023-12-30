@@ -14,7 +14,7 @@ const LeaderBoardPage = async () => {
     _count: {
       submissionTime: true,
     },
-    _min: {
+    _max: {
       submissionTime: true,
     },
     orderBy: [
@@ -24,12 +24,12 @@ const LeaderBoardPage = async () => {
         },
       },
       {
-        _min: {
+        _max: {
           submissionTime: "asc",
         },
       },
     ],
-    take: 10,
+    take: 20,
   });
 
   const topPlayersUserIds = topPlayers.map((player) => player.userId);
