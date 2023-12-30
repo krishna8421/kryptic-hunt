@@ -31,7 +31,6 @@ const LeaderBoardPage = async () => {
     ],
     take: 10,
   });
-  
 
   const topPlayersUserIds = topPlayers.map((player) => player.userId);
 
@@ -56,7 +55,7 @@ const LeaderBoardPage = async () => {
 
   return (
     <div className=" bg-red m-auto mt-20 flex max-w-2xl flex-col gap-12 px-4">
-      <h1 className="pl-4 text-4xl font-semibold">Leaderboard</h1>
+      <h1 className="pl-4 text-center text-4xl font-semibold">Leaderboard</h1>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <TableData data={data} />
       </div>
