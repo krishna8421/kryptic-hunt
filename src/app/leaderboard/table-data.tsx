@@ -15,7 +15,6 @@ interface TableDataProps {
 }
 
 const TableData = ({ data }: TableDataProps) => {
-
   return (
     <Table aria-label="Leaderboard table">
       <TableHeader>
