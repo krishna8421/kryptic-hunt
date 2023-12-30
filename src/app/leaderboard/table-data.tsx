@@ -27,7 +27,7 @@ const TableData = ({ data }: TableDataProps) => {
           <TableRow key={row.rank}>
             <TableCell>{row.rank}</TableCell>
             <TableCell>{row.name}</TableCell>
-            <TableCell>{row.count}</TableCell>
+            <TableCell>{row.count + 1}</TableCell>
           </TableRow>
         ))}
       </TableBody>
