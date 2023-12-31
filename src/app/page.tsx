@@ -11,8 +11,7 @@ const HomePage = async () => {
         <h1 className="bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 bg-clip-text text-center text-7xl font-bold text-transparent">
           Kryptic Hunt MLSA
         </h1>
-        <p className="mt-4 text-center text-sm font-medium text-gray-500">
-          Continue at your own risk!
+        <p className="mt-4 text-center text-sm font-medium text-gray-500">          
         </p>
       </header>
       <Link
@@ -23,8 +22,9 @@ const HomePage = async () => {
         <span className="sr-only">Enter</span>
       </Link>
       <h3 className="text-3xl font-semibold text-gray-300">
-        Let the Hunt Unfold...
+        ...The Hunt has Concluded
       </h3>
+      
     </main>
   );
 };
