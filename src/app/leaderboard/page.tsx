@@ -29,7 +29,7 @@ const LeaderBoardPage = async () => {
         },
       },
     ],
-    take: 117,
+    take: 10,
   });
 
   const topPlayersUserIds = topPlayers.map((player) => player.userId);
