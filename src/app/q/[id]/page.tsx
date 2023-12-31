@@ -9,9 +9,9 @@ const Question = async ({ params }: { params: { id: string } }) => {
   const session = await getServerAuthSession();
 
   const questionSequence = Number(params.id);
-  if (Number.isNaN(questionSequence)) {
-    throw new Error("Invalid question id");
-  }
+  // if (Number.isNaN(questionSequence)) {
+  //   throw new Error("Invalid question id");
+  // }
 
   const userId = session?.user?.id!;
 
@@ -24,7 +24,7 @@ const Question = async ({ params }: { params: { id: string } }) => {
   }
 
   if (userData?.currentQuestionSequence !== questionSequence) {
-    redirect(`/q/${userData?.currentQuestionSequence}`);
+    redirect(`/end`);
   }
 
   // Maybe Not Needed
@@ -45,7 +45,7 @@ const Question = async ({ params }: { params: { id: string } }) => {
   });
 
   if (userSubmissionsForQuestion) {
-    redirect(`/q/${userSubmissionsForQuestion.user.currentQuestionSequence}`);
+    redirect(`/end`);
   }
 
   const question = await db.question.findUnique({
