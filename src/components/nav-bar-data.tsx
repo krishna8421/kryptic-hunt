@@ -46,8 +46,8 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
       link: "/about",
     },
     {
-      name: "Discord",
-      link: "https://discord.gg/BW28wXGfsZ",
+      name: "Socials",
+      link: "https://linktr.ee/mlsakiit",
     },
   ];
 
@@ -100,15 +100,15 @@ const NavBarData = ({ isAuthenticated, name }: NavBarDataProps) => {
             </span>
           </Link>
         </NavbarItem>
-        <NavbarItem isActive={path.split("/")[1] === "Discord"}>
+        <NavbarItem isActive={path.split("/")[1] === "Socials"}>
           <Link
             color="foreground"
-            href="https://discord.gg/BW28wXGfsZ"
+            href="https://linktr.ee/mlsakiit"
             target="__blank"
           >
             <span className="flex items-center justify-center gap-2 hover:text-gray-100 hover:underline">
               <FaUser></FaUser>
-              Discord
+              Socials
             </span>
           </Link>
         </NavbarItem>
